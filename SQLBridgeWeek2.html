@@ -1,0 +1,339 @@
+<html>
+
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>SQL Bridge Week 2</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.column-left{
+  float: left;
+  width: 4%;
+  text-align: center;
+}
+.column-center{
+  display: inline-block;
+  width: 96%;
+  text-align: left;
+}
+</style>
+
+</head>
+
+<body>
+
+<br />
+
+<div class="w3-sidebar w3-collapse w3-white w3-animate-left w3-large" style="z-index:3;width:300px;" id="mySidebar">
+
+<div class="w3-bar w3-black w3-center">
+  <a class="w3-bar-item w3-button w3-hover-teal" style="width:33.33%" href="javascript:void(0)" onclick="openNav('nav01')">
+  <i class="fa fa-bars w3-xlarge"></i></a>
+  <a href="https://www.youtube.com/user/CUNYSPS" class="w3-bar-item w3-button" style="width:33.33%" target="_blank">
+  <img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/icon-youtube.png" ></a>
+  <a class="w3-bar-item w3-button w3-hover-teal" style="width:33.33%" href="javascript:void(0)" onclick="openNav('nav03')">
+  <i class="fa fa-bars w3-xlarge"></i></a>
+</div>
+
+<div id="nav01" class="w3-bar-block">
+  <a class="w3-button w3-hover-teal w3-hide-large w3-large w3-right" href="javascript:void(0)" onclick="w3_close()">×</a>
+  <!-- <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" style="width:65%;"></a> -->
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="https://sps.cuny.edu/" target="_blank"><img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" style="width:80%; padding-top: 10px; padding-bottom: 10px; height: 72px;"></a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#1">Question 1</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#2">Question 2</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#3">Question 3</a>
+</div>
+
+<div id="nav02">
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_templates_black.htm"><img src="img_demo_black.png" style="width:100%;"></a>
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_examples_album.htm"><img src="img_demo_summer.jpg" style="width:100%;"></a>
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_examples_blog.htm"><img src="img_demo_blog.jpg" style="width:100%;"></a>
+</div>
+
+
+<div id="nav03" class="w3-bar-block">
+  <a class="w3-button w3-hover-teal w3-hide-large w3-large w3-right" href="https://sps.cuny.edu/" target="_blank"><img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" onclick="w3_close()">×</a>
+  <!-- <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" style="width:65%;"></a> -->
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large Rlogo" href="https://www.rstudio.com/"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" target="_blank" style="width:80%; padding-top: 10px; padding-bottom: 10px; height: 72px;"></a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/452853" target="_blank">Introduction to RMarkdown</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/453661" target="_blank">R Bridge Week 1</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/455298" target="_blank">R Bridge Week 2</a>
+    <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/454603" target="_blank">R Bridge - HealthData.gov</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" <a href="http://rpubs.com/kleberperez/453530" target="_blank">SQL Bridge Hands On</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/454125" target="_blank">SQL Bridge Week 1</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="http://rpubs.com/kleberperez/455705" target="_blank">SQL Bridge Week 2</a>
+
+</div>
+</div>
+
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:300px;"> 
+
+<div class="w3-top w3-theme w3-large w3-hide-large">
+  <i class="fa fa-bars w3-button w3-teal w3-xlarge" onclick="w3_open()"></i>
+</div>
+
+<header class="w3-container w3-theme  w3-center">
+  <h3 class="w3-xxlarge w3-padding">SQL One to Many Relationships</h3>
+  <a class="w3-bar-item w3-button w3-hover-teal w3-padding" href="https://www.linkedin.com/in/kleberperez/" target="_blank">
+    <span class="w3-large w3-padding w3-hover-sand">Kleber Perez</span>
+  </a>
+</header>
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+  <h1 style="color:#990000;" >Week 2 Assignment</h1> 
+  <p class="">
+    In this assignment, we'll practice working with one-to-many relationships in SQL.  Suppose you are tasked with keeping track of a database that contain the best "how-to" videos on MySQL.
+  </p>
+  <h6><em>You may want to first create a new database (schema) for this assignment.</em></h6>
+  <a class="w3-button w3-theme w3-hover-white" href="https://rmarkdown.rstudio.com/lesson-1.html">Learn RMarkdown</a>
+  <a class="w3-button w3-theme w3-hover-white" href="https://dev.mysql.com/doc/refman/8.0/en/database-use.html">Create Database</a>
+  <p class="w3-large">
+  <p>
+  
+  <!-- QUESTION 1 -->
+  <div id="1" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>1</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <span class="">
+    <strong>Videos table.</strong>  Create one table to keep track of the videos.  This table should include a unique ID, the title of the video, the length in minutes, and the URL.  Populate the table with at least three related videos from YouTube or other publicly available resources.
+    </span>
+    </div>
+
+  <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>CREATE TABLE Videos</strong> ( <br />
+      &nbsp; &nbsp; &nbsp; Id INT PRIMARY KEY, <br />
+      &nbsp; &nbsp; &nbsp; Title VARCHAR(50) NOT NULL, <br />
+      &nbsp; &nbsp; &nbsp; Length INT NULL, <br />
+      &nbsp; &nbsp; &nbsp; Url VARCHAR(100) NOT NULL <br />
+      );
+    </code>
+  </div>
+  
+  <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>INSERT INTO Videos</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 1, 'Vertigo', 128, 'https://www.youtube.com/watch?v=WrOKBmsOw7I'); <br />
+  <strong>INSERT INTO Videos</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 2, 'The Innocents', 100, 'https://www.youtube.com/watch?v=lIuEEP_4d0E'); <br />
+  <strong>INSERT INTO Videos</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 3, 'Amadeus', 160, 'https://www.youtube.com/watch?v=tgZhaFFNVc4'); <br />
+  <strong>INSERT INTO Videos</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 4, 'Titanic', 194, 'https://www.youtube.com/watch?v=kRC4e3pEIpI'); <br />
+  <strong>INSERT INTO Videos</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 5, 'Good Will Hunting', 126, 'https://www.youtube.com/watch?v=hIdsjNGCGz4'); <br />
+    </code>
+  </div>
+  
+    <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>SELECT * FROM Videos;</strong>
+    </code>
+  </div>
+  
+  <a class="w3-button w3-theme w3-hover-white" href="https://dev.mysql.com/doc/search/?d=201&p=1&q=create+table" target="_blank">Try it Yourself</a>
+  <!-- END QUESTION 1 -->
+</div>
+
+
+
+<p class="w3-white">&nbsp;</p>
+
+<!-- QUESTION 2 -->
+<div id="2" class="w3-container w3-padding-large w3-section w3-light-grey">
+  <div class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>2</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <span class="">
+    <strong>Create and populate Reviewers table.</strong>  Create a second table that provides at least two user reviews for each of at least two of the videos.  These should be imaginary reviews that include columns for the user's name ("Asher", "Cyd", etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review ("Loved it!").  There should be a column that links back to the ID column in the table of videos.
+    </span>
+    </div>
+
+  <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>CREATE TABLE Reviewers</strong> ( <br />
+      &nbsp; &nbsp; &nbsp; User VARCHAR(50) NOT NULL, <br />
+      &nbsp; &nbsp; &nbsp; Rating INT NULL, <br />
+      &nbsp; &nbsp; &nbsp; Review VARCHAR(10), <br />
+      &nbsp; &nbsp; &nbsp; vidId INT REFERENCES Reviewers <br />
+      );
+    </code>
+  </div>
+  
+  <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>INSERT INTO Reviewers</strong> ( Id, Title, Length, Url ) <strong>VALUES</strong> ( 1, 'Vertigo', 128, 'https://www.youtube.com/watch?v=WrOKBmsOw7I'); <br />
+  <strong>INSERT INTO Reviewers</strong> ( User, Rating, Review, vidId) <strong>VALUES</strong> ( 'Cyd', 5, 'Loved it!', 3); <br />
+  <strong>INSERT INTO Reviewers</strong> ( User, Rating, Review, vidId) <strong>VALUES</strong> ( 'Bob', 5, 'Loved it!', 5); <br />
+    </code>
+  </div>
+  
+    <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <code class="w3-text-grey w3-text-dark-grey">
+      <strong>SELECT * FROM Reviewers;</strong>
+    </code>
+  </div>
+
+  <a class="w3-button w3-theme w3-hover-white" href="https://dev.mysql.com/doc/search/?d=201&p=1&q=create+table" target="_blank">Try it Yourself</a>
+</div>
+<!-- END QUESTION 2 -->
+
+<p class="w3-white">&nbsp;</p>
+
+<!-- QUESTION 3 -->
+<div id="3" class="w3-container w3-padding-large w3-section w3-light-grey">
+  <div class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>3</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <span class="">
+    <strong>Report on Video Reviews.</strong> Write a JOIN statement that shows information from both tables. 
+    </span>
+    </div>
+
+  <div class="column-left w3-border-0">
+    <span>&nbsp;</span>
+  </div>
+  <div class="column-center w3-code cssHigh notranslate w3-hover-sand">
+    <span class="w3-text-grey w3-text-dark-grey">
+      SELECT * <br />
+      &nbsp; FROM Videos v INNER JOIN Reviewers r <br />
+      &nbsp; ON   v.Id = r.vidId;
+    </span>
+  </div>
+  <a class="w3-button w3-theme w3-hover-white" href="https://dev.mysql.com/doc/refman/8.0/en/mysql-innodb-cluster-sandbox-deployment.html" target="_blank">Try it Yourself</a>
+</div>
+<!-- END QUESTION 3 -->
+
+
+<p class="w3-white">&nbsp;</p>
+
+<footer class="w3-container w3-padding-large w3-light-grey w3-justify w3-opacity">
+  <p><nav>
+  <a href="https://sps.cuny.edu/admissions" target="_blank"><span class="w3-padding w3-hover-lime">ADMISSIONS</span></a> |
+  <a href="https://sps.cuny.edu/about" target="_blank"><span class="w3-padding w3-hover-lime">ABOUT</span></a>
+  </nav></p>
+  
+  <p><nav>
+  <span class="w3-padding"><i>Please email to: </i> <a class="w3-text-indigo" href="mailto:kleber.perez@live.com"><strong>kleber.perez@live.com</strong></a> <i>for any suggestion.</i></span>
+  <br />
+  <span class="w3-padding">SQL Bridge Week 2 Assignment - MSDS 2019 Program.</span>
+  </nav></p>
+</footer>
+
+</div>
+
+<div><br /><br /></div>
+
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+openNav("nav01");
+function openNav(id) {
+  document.getElementById("nav01").style.display = "none";
+  document.getElementById("nav02").style.display = "none";
+  document.getElementById("nav03").style.display = "none";
+  document.getElementById(id).style.display = "block";
+}
+</script>
+
+<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+
+<script>
+w3CodeColor();
+</script>
+
+
+</body>
+</html>
